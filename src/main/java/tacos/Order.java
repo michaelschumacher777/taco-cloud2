@@ -1,12 +1,14 @@
 package tacos;
 
-import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.validation.constraints.*;
+import java.util.Date;
 
 public class Order {
 
+    private Long id;
+    private Date createdAt;
     @NotNull(message = "Name is required")
     @Size(min = 5, message = "Name must be at least 5 characters long")
     private String name;
@@ -39,6 +41,14 @@ public class Order {
                 ", ccCVV='" + ccCVV + '\'' +
                 '}';
     }
+
+    public Long getId() { return id; }
+
+    public void setId(Long id) { this.id = id; }
+
+    public Date getCreatedAt() { return createdAt; }
+
+    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
 
     public String getName() {
         return name;
