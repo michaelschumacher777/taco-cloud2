@@ -7,7 +7,7 @@
     <title>Taco Cloud</title>
     <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
-<!--/*@thymesVar id="order" type="tacos.domain.Order"*/-->
+<!--/*@thymesVar id="order" type="tacos.Order"*/-->
 <body>
     <form method="POST" th:action="@{/orders}" th:object="${order}">
         <h1>Order your taco creations!</h1>
@@ -44,11 +44,17 @@
 
         <label for="ccNumber">Credit Card #: </label>
         <input type="text" th:field="*{ccNumber}" />
+        <span class="validationError"
+              th:if="${#fields.hasErrors('ccNumber')}"
+              th:errors="*{ccNumber}">CC Num Error</span>
         <br/>
 
         <h3>Here's how I'll pay...</h3>
         <label for="ccExpiration">Expiration: </label>
         <input type="text" th:field="*{ccExpiration}" />
+        <span class="validationError"
+              th:if="${#fields.hasErrors('ccExpiration')}"
+              th:errors="*{ccExpiration}">CC Expiration Error</span>
         <br/>
 
         <label for="ccCVV">CVV: </label>
