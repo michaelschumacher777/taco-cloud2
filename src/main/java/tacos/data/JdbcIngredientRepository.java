@@ -11,8 +11,8 @@ import java.sql.SQLException;
 @Repository
 public class JdbcIngredientRepository implements IngredientRepository {
 
-    private JdbcTemplate jdbc;
 
+    private JdbcTemplate jdbc;
     @Autowired
     public JdbcIngredientRepository(JdbcTemplate jdbc) {
         this.jdbc = jdbc;
